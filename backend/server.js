@@ -16,4 +16,4 @@ app.use("/api/auth", authRoutes);
 app.use("/api/task", taskRoutes);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`[Info][Success] Server running on port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`[Info][Success] Server running on port ${PORT}`));
