@@ -1,22 +1,26 @@
 import './App.css'
 import hackathonGraphic from './assets/hackathon-graphic.svg'
 import naverLogo from './assets/naver-logo.svg'
+import Dashboard from './pages/Dashboard.jsx';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import AuthProvider from "./context/AuthContext.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 function App() {
-  return (
-    <div className="container">
-      <div className="content">
-        <img src={naverLogo} alt="NAVER Vietnam AI Hackathon" className="logo" />
-        
-        <div className="greeting">
-          <p className="hello">Xin chào! 안녕하세요!</p>
-          <p className="subtitle">Hello World</p>
-        </div>
-      </div>
-      
-      <img className="graphic" src={hackathonGraphic} alt="" />
-    </div>
-  )
+    const isAuthenticated = localStorage.getItem("token");
+
+    return (
+        <AuthProvider>
+            <BrowserRouter>
+                <Routes>
+                <Route path="/login" element={!isAuthenticated ?  <Login /> : <Navigate to="/" />} />
+                <Route path="/register" element={!isAuthenticated ?  <Register /> : <Navigate to="/" />} />
+                <Route path="/" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}/>
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
+    );
 }
 
-export default App
+export default App;

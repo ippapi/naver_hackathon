@@ -1,51 +1,90 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #1a1a2e;
-  color: white;
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* trắng */
+  color: #000;            /* chữ đen */
 }
 
-.container {
+/* Dashboard */
+.dashboard-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Switch buttons */
+.view-switch {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.view-switch button {
+  padding: 6px 12px;
+  border: 1px solid #888;
+  background: #eee;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.view-switch button.active {
+  background: #000;
+  color: #fff;
+}
+
+/* Add Task Form */
+.add-task-form {
+  border: 1px solid #888;
+  background: #f9f9f9;
+  color: #000;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.add-task-form input,
+.add-task-form select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 6px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-task-form label {
   display: flex;
   align-items: center;
-  padding: 0 8%;
+  gap: 5px;
 }
 
-.content {
-  flex: 1;
+.add-task-form button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
 }
 
-.logo {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  margin-bottom: 3rem;
+/* Task Card */
+.task-card {
+  border: 1px solid #888;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background: #f5f5f5;
+  color: #000;
 }
 
-.greeting {
-  margin-top: 2rem;
+.task-card button {
+  margin-top: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
 }
 
-.hello {
-  font-size: 2.5rem;
-  color: #5FF281;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
 
-.subtitle {
-  font-size: 1.5rem;
-  color: #888;
-}
-
-.graphic {
-  width: 500px;
-  height: auto;
-}
